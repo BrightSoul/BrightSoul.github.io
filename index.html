@@ -1,0 +1,263 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Hack Developers Italia</title>
+<script>
+/* Configuration */
+var config = {
+	dateFormat: 24,
+	anticipateSessionByMinutes: 10,
+	sessions: [
+		{when: 'Fri, 06 Oct 2017 00:00:00 GMT+0200', durationInMinutes: 10, tracks: [{what: 'Programma 1', who: 'attendants'}]},
+		{when: 'Fri, 06 Oct 2017 00:30:00 GMT+0200', durationInMinutes: 30, tracks: [{what: 'Programma 2', who: 'attendants'},{what: 'Programma A', who: 'mentors'}]},
+		{when: 'Fri, 06 Oct 2017 00:57:00 GMT+0200', durationInMinutes: 30, tracks: [{what: 'Programma 2', who: 'attendants'},{what: 'Programma B', who: 'mentors'}]},
+		{when: 'Fri, 06 Oct 2017 01:07:00 GMT+0200', durationInMinutes: 30, tracks: [{what: 'Programma 3', who: 'attendants'},{what: 'Programma C', who: 'mentors'}]}
+	],
+	labels: {
+		attendants: "Partecipanti",
+		mentors: 'Mentori',
+		attendantsInitial: "P",
+		mentorsInitial: "M",
+		pastSessionTime: "Poco fa",
+		sessionStartingIn: ["Fra {minutes} minuto", "Fra {minutes} minuti"],
+		sessionUnderway: "In corso",
+		upcomingSessionsTime: "Più tardi",
+		noSessions: "Nessuna sessione in programma",
+		at: "Alle"
+	}
+};
+/* End of configuration */
+</script>
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
+<style>
+* { font-family: 'Titillium Web', sans-serif; color: white;}
+html, body {margin:0; padding:0; width: 100%; height:100%;}
+body { background-color: black;}
+ul {list-style-type: none; display:inline-block; vertical-align: top; margin:0; padding:0; }
+li {display: block;}
+#container { background-image:url('background.jpg'); background-size: 100% 100%; background-position: center center;  background-repeat: no-repeat; height:100%; width:100%; margin:auto; position:relative; }
+
+@keyframes changing {
+    0%   {transform: translate(0, 0);}
+    40%  {transform: translate(0, -20px); opacity: 0;}
+	60%  {transform: translate(0, 20px); opacity: 0;}
+    100%  {transform: translate(0, 0); opacity: 1;}
+}
+
+#past-session .changing, #current-session .changing, #upcoming-sessions .changing { animation-name: changing; animation-duration: 1s; position:relative; animation-timing-function: ease-in-out;}
+#past-session .changing {animation-delay: 0s;}
+#current-session. changing {animation-delay: 0.2s;}
+#upcoming-sessions .changing {animation-delay: 0.4s;}
+#past-session {position:absolute; top:17%; height:9%; width: 100%;}
+#current-session {position:absolute; top:31%; height:30%; width: 100%; font-size: 30px;}
+#no-current-session {position:absolute; top:42%; height:10%; width: 100%;}
+#upcoming-sessions {position:absolute; top:65%; height:17%; width: 100%;}
+.session-timeframe {color: white; font-size: 30px; text-transform: uppercase; display:inline-block; margin-right: 30px; padding-right:30px; border-right: 3px solid #eb6468; height:100%; float:left; padding-left: 30px; width: 200px; text-align:right;}
+
+#no-current-session {font-size: 30px; text-align:center; font-style: italic; color: rgba(255, 255, 255, 0.7)}
+
+#past-session .session-timeframe, #past-session .session-time, #upcoming-sessions .session-timeframe, #upcoming-sessions .session-time {font-size:24px; color: rgba(255, 255, 255, 0.7)}
+
+.attendants-indicator {background-color: #f1751f; display: inline-block;}
+.mentors-indicator {background-color: #8c36d7; display: inline-block;}
+
+.session-time {font-size:30px; margin-right:30px;}
+.sessions>li {margin-bottom:10px;}
+
+.audience-initial { width: 30px; height:30px; display: inline-block; margin-right:10px; margin-bottom: 5px; text-align:center; font-size: 19px; margin-top:5px; opacity: 0.7;}
+.track-title { font-size: 44px;}
+#past-session .track-title, #upcoming-sessions .track-title { font-size: 20px; color: rgba(255, 255, 255, 0.7) }
+#current-session .track-title { vertical-align:middle; display:inline-block; }
+.audience {font-size: 16px; width: 111px; height:32px; text-transform: uppercase; text-align:center; line-height: 32px; vertical-align: middle; margin-right: 6px;}
+#current-session .session-time {font-size: 40px; line-height: 20px;}
+
+</style>
+</head>
+<body>
+<div id="container">
+<!-- Past session -->
+<div id="past-session" data-bind="if: pastSession">
+	<label class="session-timeframe" data-bind="text: labels.pastSessionTime"></label>
+	<div data-bind="with: pastSession, css: {changing: changingSession}">
+		<span class="session-time" data-bind="text: $root.formatTime(when)"></span>
+		<ul data-bind="foreach: tracks">
+			<li>
+				<span class="audience-initial" data-bind="text: $root.formatAudienceInitial(who), css: {'attendants-indicator': who == 'attendants', 'mentors-indicator': who == 'mentors'}"></span>
+				<span class="track-title" data-bind="text: what"></span>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<!-- Current session -->
+<div id="current-session" data-bind="if: currentSession">
+	<label class="session-timeframe" data-bind="text: sessionStartingIn"></label>
+	<div data-bind="with: currentSession, css: {changing: changingSession}">
+		<div>
+			<span data-bind="text: $root.labels.at"></span> 
+			<strong class="session-time" data-bind="text: $root.formatTime(when)"></strong>
+		</div>
+		<ul data-bind="foreach: tracks">
+			<li>
+				<span class="audience" data-bind="text: $root.formatAudience(who), css: {'attendants-indicator': who == 'attendants', 'mentors-indicator': who == 'mentors'}"></span> <span class="track-title" data-bind="text: what"></span>
+			</li>
+		</ul>
+	</div>
+</div>
+<div id="no-current-session" data-bind="if: !currentSession()">
+	<!-- ko text: labels.noSessions --><!-- /ko -->
+</div>
+
+<!-- Upcoming sessions -->
+<div id="upcoming-sessions" data-bind="if: upcomingSessions().length > 0">
+	<label class="session-timeframe" data-bind="text: labels.upcomingSessionsTime"></label>
+	<ul class="sessions" data-bind="css: {changing: changingSession}, foreach: upcomingSessions">
+		<li>
+			<span class="session-time" data-bind="text: $root.formatTime(when)"></span>
+			<ul data-bind="foreach: tracks">
+				<li>
+					<span class="audience-initial" data-bind="text: $root.formatAudienceInitial(who), css: {'attendants-indicator': who == 'attendants', 'mentors-indicator': who == 'mentors'}"></span>
+					<span class="track-title" data-bind="text: what"></span>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+<script>
+
+function AgendaViewModel() {
+	var self = this;
+	
+	self.pastSession = ko.observable(null);
+	self.currentSession = ko.observable(null);
+	self.upcomingSessions = ko.observableArray([]);
+	self.changingSession = ko.observable(false);
+	self.sessionStartingIn = ko.observable("");
+	self.labels = config.labels;
+	
+	function updateTimetable() {
+		var isCurrent;
+		var now = new Date();
+		var currentSession = null;
+		var pastSession = null;
+		var upcomingSessions = [];		
+		for (var i = 0; i < config.sessions.length; i++) {
+		
+			if ((now - config.sessions[i].when) > -(config.anticipateSessionByMinutes * 60 * 1000)) {
+				pastSession = config.sessions[i];
+			}
+			
+			isCurrent = ((now - config.sessions[i].when) > -(config.anticipateSessionByMinutes * 60 * 1000)) && ((now - config.sessions[i].when) < (config.sessions[i].durationInMinutes * 60 * 1000));	
+			if (isCurrent && i < config.sessions.length - 1) {
+				isCurrent = (now - config.sessions[i+1].when) < -(config.anticipateSessionByMinutes * 60 * 1000);
+			}
+			if (!isCurrent) {
+				continue;
+			}
+			currentSession = config.sessions[i];	
+			if (i > 0) {
+				pastSession = config.sessions[i-1];
+			} else {
+				pastSession = null;
+			}
+			
+			if (i < config.sessions.length -1) {
+				upcomingSessions = config.sessions.slice(i+1, Math.min(i+4, config.sessions.length));
+			}
+			break;
+		}
+		
+		
+		if (currentSession) {
+			var remainingMinutes = Math.ceil((currentSession.when - now) / 1000 / 60);
+			if (remainingMinutes <= 0) {
+				self.sessionStartingIn(self.labels.sessionUnderway);
+			} else {
+				self.sessionStartingIn(self.labels.sessionStartingIn[remainingMinutes == 1 ? 0 : 1].replace("{minutes}", remainingMinutes));
+			}
+		} else {
+			self.sessionStartingIn(null);
+		}
+		
+		if ((currentSession == self.currentSession()) && (self.pastSession() != null || config.sessions[0] == currentSession))
+		return;
+		
+		changeSessions(pastSession, currentSession, upcomingSessions);
+	}
+	
+	function changeSessions(pastSession, currentSession, upcomingSessions) {
+		self.changingSession(true);
+		setTimeout(function() { 
+			self.pastSession(pastSession);
+			self.currentSession(currentSession); 
+			self.upcomingSessions(upcomingSessions);
+		}, 500);
+		setTimeout(function() { self.changingSession(false); }, 1500);
+	}
+	
+	//thanks to https://shashikantbhosale.wordpress.com/2013/07/17/javascript-convert-24-hour-clock-time-format-to-12-hour-time-clock-format/
+	self.formatTime = function(date) {
+		var hour    = date.getHours();  /* Returns the hour (from 0-23) */
+		var minutes     = date.getMinutes();  /* Returns the minutes (from 0-59) */
+		var result  = hour;
+		var ext     = '';
+		
+		if(config.dateFormat == 12){
+			if(hour > 12){
+				ext = 'PM';
+				hour = (hour - 12);
+		
+				if(hour < 10){
+					result = "0" + hour;
+				}else if(hour == 12){
+					hour = "00";
+					ext = 'AM';
+				}
+			}
+			else if(hour < 12){
+				result = ((hour < 10) ? "0" + hour : hour);
+				ext = 'AM';
+			}else if(hour == 12){
+				ext = 'PM';
+			}
+		}
+		
+		if(minutes < 10){
+			minutes = "0" + minutes; 
+		}
+		
+		result = result + ":" + minutes + ' ' + ext; 
+		return result;
+	};
+	
+	self.formatAudienceInitial = function(audience) {
+		return self.labels[audience + "Initial"];
+	};
+	
+	self.formatAudience = function(audience) {
+		return self.labels[audience];
+	};
+	
+	self.init = function() {
+		config.sessions.forEach(function(item) { item.when = new Date(item.when); });
+		config.sessions.sort(function(item1, item2) { return item1.when > item2.when;});
+		updateTimetable();
+		setInterval(updateTimetable, 5000);
+	};
+}
+
+var viewModel = new AgendaViewModel();
+viewModel.init();
+ko.applyBindings(viewModel);
+
+//set container width
+var containerWidth = /width=([0-9]+(%|px))/.exec(window.location.search);
+document.getElementById("container").style.width=containerWidth ? containerWidth[1] : "100%";
+
+
+</script>
+</body>
+</html>
