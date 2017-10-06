@@ -7,6 +7,8 @@ In alternativa, è ovviamente possibile scaricare i file ed ospitarli su un prop
 
 Per provare il funzionamento della pagina, modificate l'orologio del vostro PC al 7 ottobre alle 15:00.
 
+![Anteprima della pagina](agenda-preview.jpg)
+
 ### Opzioni
 E' possibile invocare la pagina fornendo dei parametri querystring per configurarne il comportamento.
  * Parametro *width* per impostare una larghezza percentuale o in pixel diversa da quella di default (utile per adattare la pagina alla vostra risoluzione);
