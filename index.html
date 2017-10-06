@@ -33,7 +33,7 @@ li {display: block;}
 
 #past-session .session-timeframe, #past-session .session-time, #upcoming-sessions .session-timeframe, #upcoming-sessions .session-time {font-size:3vh; color: rgba(255, 255, 255, 0.7)}
 
-.attendants-indicator {background-color: #f1751f; display: inline-block;}
+.attendees-indicator {background-color: #f1751f; display: inline-block;}
 .mentors-indicator {background-color: #8c36d7; display: inline-block;}
 
 .session-time {margin-right:2vh; line-height:4vh}
@@ -58,7 +58,7 @@ li {display: block;}
 		<span class="session-time" data-bind="text: $root.formatTime(when)"></span>
 		<ul data-bind="foreach: tracks">
 			<li>
-				<span class="audience-initial" data-bind="text: $root.formatAudienceInitial(who), css: {'attendants-indicator': who == 'attendants', 'mentors-indicator': who == 'mentors'}"></span>
+				<span class="audience-initial" data-bind="text: $root.formatAudienceInitial(who), css: {'attendees-indicator': who == 'attendees', 'mentors-indicator': who == 'mentors'}"></span>
 				<span class="track-title" data-bind="text: what"></span>
 			</li>
 		</ul>
@@ -75,7 +75,7 @@ li {display: block;}
 		</div>
 		<ul data-bind="foreach: tracks">
 			<li>
-				<span class="audience" data-bind="text: $root.formatAudience(who), css: {'attendants-indicator': who == 'attendants', 'mentors-indicator': who == 'mentors'}"></span> <span class="track-title" data-bind="text: what"></span>
+				<span class="audience" data-bind="text: $root.formatAudience(who), css: {'attendees-indicator': who == 'attendees', 'mentors-indicator': who == 'mentors'}"></span> <span class="track-title" data-bind="text: what"></span>
 			</li>
 		</ul>
 	</div>
@@ -92,7 +92,7 @@ li {display: block;}
 			<span class="session-time" data-bind="text: $root.formatTime(when)"></span>
 			<ul data-bind="foreach: tracks">
 				<li>
-					<span class="audience-initial" data-bind="text: $root.formatAudienceInitial(who), css: {'attendants-indicator': who == 'attendants', 'mentors-indicator': who == 'mentors'}"></span>
+					<span class="audience-initial" data-bind="text: $root.formatAudienceInitial(who), css: {'attendees-indicator': who == 'attendees', 'mentors-indicator': who == 'mentors'}"></span>
 					<span class="track-title" data-bind="text: what"></span>
 				</li>
 			</ul>
