@@ -2,32 +2,7 @@
 <html>
 <head>
 <title>Hack Developers Italia</title>
-<script>
-/* Configuration */
-var config = {
-	dateFormat: 24,
-	anticipateSessionByMinutes: 10,
-	sessions: [
-		{when: 'Fri, 06 Oct 2017 00:00:00 GMT+0200', durationInMinutes: 10, tracks: [{what: 'Programma 1', who: 'attendants'}]},
-		{when: 'Fri, 06 Oct 2017 00:30:00 GMT+0200', durationInMinutes: 30, tracks: [{what: 'Programma 2', who: 'attendants'},{what: 'Programma A', who: 'mentors'}]},
-		{when: 'Fri, 06 Oct 2017 00:57:00 GMT+0200', durationInMinutes: 30, tracks: [{what: 'Programma 2', who: 'attendants'},{what: 'Programma B', who: 'mentors'}]},
-		{when: 'Fri, 06 Oct 2017 01:07:00 GMT+0200', durationInMinutes: 30, tracks: [{what: 'Programma 3', who: 'attendants'},{what: 'Programma C', who: 'mentors'}]}
-	],
-	labels: {
-		attendants: "Partecipanti",
-		mentors: 'Mentori',
-		attendantsInitial: "P",
-		mentorsInitial: "M",
-		pastSessionTime: "Poco fa",
-		sessionStartingIn: ["Fra {minutes} minuto", "Fra {minutes} minuti"],
-		sessionUnderway: "In corso",
-		upcomingSessionsTime: "Più tardi",
-		noSessions: "Nessuna sessione in programma",
-		at: "Alle"
-	}
-};
-/* End of configuration */
-</script>
+<!-- This page can be configured by editing the  self.config.json file -->
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
 <style>
 * { font-family: 'Titillium Web', sans-serif; color: white;}
@@ -39,42 +14,43 @@ li {display: block;}
 
 @keyframes changing {
     0%   {transform: translate(0, 0);}
-    40%  {transform: translate(0, -20px); opacity: 0;}
-	60%  {transform: translate(0, 20px); opacity: 0;}
+    40%  {transform: translate(0, -2vh); opacity: 0;}
+	60%  {transform: translate(0, 2vh); opacity: 0;}
     100%  {transform: translate(0, 0); opacity: 1;}
 }
 
 #past-session .changing, #current-session .changing, #upcoming-sessions .changing { animation-name: changing; animation-duration: 1s; position:relative; animation-timing-function: ease-in-out;}
 #past-session .changing {animation-delay: 0s;}
-#current-session. changing {animation-delay: 0.2s;}
+#current-session .changing {animation-delay: 0.2s;}
 #upcoming-sessions .changing {animation-delay: 0.4s;}
 #past-session {position:absolute; top:17%; height:9%; width: 100%;}
-#current-session {position:absolute; top:31%; height:30%; width: 100%; font-size: 30px;}
+#current-session {position:absolute; top:31%; height:30%; width: 100%;}
 #no-current-session {position:absolute; top:42%; height:10%; width: 100%;}
 #upcoming-sessions {position:absolute; top:65%; height:17%; width: 100%;}
-.session-timeframe {color: white; font-size: 30px; text-transform: uppercase; display:inline-block; margin-right: 30px; padding-right:30px; border-right: 3px solid #eb6468; height:100%; float:left; padding-left: 30px; width: 200px; text-align:right;}
+.session-timeframe {color: white; font-size: 4vh; text-transform: uppercase; display:inline-block; margin-right:4vh; padding-right:4vh; border-right: 0.4vh solid #eb6468; height:100%; float:left; padding-left: 30px; width: 22%; text-align:right;}
 
-#no-current-session {font-size: 30px; text-align:center; font-style: italic; color: rgba(255, 255, 255, 0.7)}
+#no-current-session {font-size: 4vh; text-align:center; font-style: italic; color: rgba(255, 255, 255, 0.7)}
 
-#past-session .session-timeframe, #past-session .session-time, #upcoming-sessions .session-timeframe, #upcoming-sessions .session-time {font-size:24px; color: rgba(255, 255, 255, 0.7)}
+#past-session .session-timeframe, #past-session .session-time, #upcoming-sessions .session-timeframe, #upcoming-sessions .session-time {font-size:3vh; color: rgba(255, 255, 255, 0.7)}
 
 .attendants-indicator {background-color: #f1751f; display: inline-block;}
 .mentors-indicator {background-color: #8c36d7; display: inline-block;}
 
-.session-time {font-size:30px; margin-right:30px;}
+.session-time {margin-right:2vh; line-height:4vh}
 .sessions>li {margin-bottom:10px;}
 
-.audience-initial { width: 30px; height:30px; display: inline-block; margin-right:10px; margin-bottom: 5px; text-align:center; font-size: 19px; margin-top:5px; opacity: 0.7;}
-.track-title { font-size: 44px;}
-#past-session .track-title, #upcoming-sessions .track-title { font-size: 20px; color: rgba(255, 255, 255, 0.7) }
-#current-session .track-title { vertical-align:middle; display:inline-block; }
-.audience {font-size: 16px; width: 111px; height:32px; text-transform: uppercase; text-align:center; line-height: 32px; vertical-align: middle; margin-right: 6px;}
-#current-session .session-time {font-size: 40px; line-height: 20px;}
+.audience-initial { width: 3.2vh; height:3.2vh; display: inline-block; margin-top:0.4vh; margin-right:1.6vh; text-align:center; font-size: 2vh; opacity: 0.7; vertical-align: top;}
+.track-title { font-size: 4.5vh; line-height:4vh; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block; vertical-align: top;}
+#past-session .track-title, #upcoming-sessions .track-title { font-size: 3vh; color: rgba(255, 255, 255, 0.7); }
+#current-session .track-title { vertical-align:middle; display:inline-block; line-height: 7vh; }
+.audience {font-size: 1.9vh; line-height: 3.6vh; width: 13.2vh; height:3.5vh; text-transform: uppercase; text-align:center; vertical-align: middle; margin-right: 1.6vh;}
+#current-session .session-time {font-size: 5vh; margin-left:1vh;}
+.session-time-at {font-size: 4vh;}
 
 </style>
 </head>
 <body>
-<div id="container">
+<div id="container" data-bind="if: loaded">
 <!-- Past session -->
 <div id="past-session" data-bind="if: pastSession">
 	<label class="session-timeframe" data-bind="text: labels.pastSessionTime"></label>
@@ -94,7 +70,7 @@ li {display: block;}
 	<label class="session-timeframe" data-bind="text: sessionStartingIn"></label>
 	<div data-bind="with: currentSession, css: {changing: changingSession}">
 		<div>
-			<span data-bind="text: $root.labels.at"></span> 
+			<span class="session-time-at" data-bind="text: $root.labels.at"></span>
 			<strong class="session-time" data-bind="text: $root.formatTime(when)"></strong>
 		</div>
 		<ul data-bind="foreach: tracks">
@@ -136,36 +112,86 @@ function AgendaViewModel() {
 	self.upcomingSessions = ko.observableArray([]);
 	self.changingSession = ko.observable(false);
 	self.sessionStartingIn = ko.observable("");
-	self.labels = config.labels;
+	self.labels = null;
+	self.config = null;
+	self.updatedConfig = null;
+	self.loaded = ko.observable(false);
 	
-	function updateTimetable() {
+	function updateConfiguration() {
+		getJson("config.json?v=" + Math.random(), function(error, data) {
+			if (!error) {
+				var needsUpdate = self.updatedConfig == null;
+				self.updatedConfig = data;
+				if (needsUpdate) {
+					updateSessions();
+				}
+				
+			} else {
+				console.error("Couldn't update configuration, will try again in a few minutes...");
+			}
+		})
+	}
+	
+	function updateSessions() {
+	
+		if (!self.config && !self.updatedConfig)
+			return;
+
+			
+		if (self.config != self.updatedConfig) {
+			self.config = self.updatedConfig.config;
+			self.config.sessions.forEach(function(item) { item.when = new Date(item.when); });
+			//self.config.sessions.sort(function(item1, item2) { return item1.when.getTime() > item2.when.getTime();});
+			
+			var language = /lang=(en|it)/.exec(window.location.search);
+			if (language) {
+				language = language[1];
+			} else {
+				language = "it";
+			}
+			
+			self.labels = self.updatedConfig.labels[language];
+			if (!self.loaded()) {
+				self.loaded(true);
+			}
+		}
+	
 		var isCurrent;
 		var now = new Date();
 		var currentSession = null;
 		var pastSession = null;
 		var upcomingSessions = [];		
-		for (var i = 0; i < config.sessions.length; i++) {
+		for (var i = 0; i < self.config.sessions.length; i++) {
 		
-			if ((now - config.sessions[i].when) > -(config.anticipateSessionByMinutes * 60 * 1000)) {
-				pastSession = config.sessions[i];
+			if (((now - self.config.sessions[i].when) > -(self.config.anticipateSessionByMinutes * 60 * 1000)) && (now - self.config.sessions[i].when - (self.config.sessions[i].durationInMinutes * 60 * 1000)) <= (self.config.isRecentForMinutes * 60 * 1000)) {
+				pastSession = self.config.sessions[i];
 			}
 			
-			isCurrent = ((now - config.sessions[i].when) > -(config.anticipateSessionByMinutes * 60 * 1000)) && ((now - config.sessions[i].when) < (config.sessions[i].durationInMinutes * 60 * 1000));	
-			if (isCurrent && i < config.sessions.length - 1) {
-				isCurrent = (now - config.sessions[i+1].when) < -(config.anticipateSessionByMinutes * 60 * 1000);
+			isCurrent = ((now - self.config.sessions[i].when) > -(self.config.anticipateSessionByMinutes * 60 * 1000)) && ((now - self.config.sessions[i].when) < (self.config.sessions[i].durationInMinutes * 60 * 1000));	
+			if (isCurrent && i < self.config.sessions.length - 1) {
+				isCurrent = (now - self.config.sessions[i+1].when) < -(self.config.anticipateSessionByMinutes * 60 * 1000);
 			}
 			if (!isCurrent) {
 				continue;
 			}
-			currentSession = config.sessions[i];	
-			if (i > 0) {
-				pastSession = config.sessions[i-1];
+			currentSession = self.config.sessions[i];	
+			if (i > 0 && ((now - self.config.sessions[i-1].when - (self.config.sessions[i-1].durationInMinutes * 60 * 1000)) <= (self.config.isRecentForMinutes * 60 * 1000))) {
+				pastSession = self.config.sessions[i-1];
 			} else {
 				pastSession = null;
 			}
 			
-			if (i < config.sessions.length -1) {
-				upcomingSessions = config.sessions.slice(i+1, Math.min(i+4, config.sessions.length));
+			if (i < self.config.sessions.length -1) {
+				upcomingSessions = [];
+				var tracks = 0;
+				for (var j = i+1; j < Math.min(i+5, self.config.sessions.length); j++) {
+					if (tracks + self.config.sessions[j].tracks.length <= 4) {
+						tracks += self.config.sessions[j].tracks.length;
+						upcomingSessions.push(self.config.sessions[j]);
+					} else {
+						break;
+					}
+				}
 			}
 			break;
 		}
@@ -182,10 +208,57 @@ function AgendaViewModel() {
 			self.sessionStartingIn(null);
 		}
 		
-		if ((currentSession == self.currentSession()) && (self.pastSession() != null || config.sessions[0] == currentSession))
-		return;
+		if (isSameSession(currentSession, self.currentSession()) && isSameSession(pastSession, self.pastSession()) && areSameSessions(upcomingSessions, self.upcomingSessions())) {
+			return;
+		}
 		
 		changeSessions(pastSession, currentSession, upcomingSessions);
+	}
+	
+	function isSameSession(session1, session2) {
+		if ((session1 == null && session2 != null) || (session1 != null && session2 == null)) {
+			return false;
+		}
+		
+		if (session1 == null && session2 == null) {
+			return true;
+		}
+		
+		var same = session1.when.getTime() == session2.when.getTime();
+		same = same && (session1.durationInMinutes == session2.durationInMinutes);
+		same = same && (session1.tracks.length == session2.tracks.length);
+		
+		if (!same) {
+			return false;
+		}
+		
+		for (var i = 0; i < session1.tracks.length; i++) {
+			same = same && (session1.tracks[i].who == session2.tracks[i].who);
+			same = same && (session1.tracks[i].what == session2.tracks[i].what);
+		}
+		
+		return same;
+	}
+	
+	function areSameSessions(sessions1, sessions2) {
+	
+		if ((sessions1 == null && sessions2 != null) || (sessions1 != null && sessions2 == null)) {
+			return false;
+		}
+		
+		if (sessions1 == null && sessions2 == null) {
+			return true;
+		}
+		
+		if (sessions1.length != sessions2.length) {
+			return false;
+		}
+		
+		var same = true;
+		for (var i = 0; i < sessions1.length; i++) {
+			same = same && isSameSession(sessions1[i], sessions2[i]);
+		}
+		return same;
 	}
 	
 	function changeSessions(pastSession, currentSession, upcomingSessions) {
@@ -198,6 +271,21 @@ function AgendaViewModel() {
 		setTimeout(function() { self.changingSession(false); }, 1500);
 	}
 	
+	function getJson(url, callback) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', url, true);
+		xhr.responseType = 'json';
+		xhr.onload = function() {
+			var status = xhr.status;
+			if (status === 200) {
+				callback(null, xhr.response);
+			} else {
+				callback(status, xhr.response);
+			}
+		};
+		xhr.send();
+	};
+	
 	//thanks to https://shashikantbhosale.wordpress.com/2013/07/17/javascript-convert-24-hour-clock-time-format-to-12-hour-time-clock-format/
 	self.formatTime = function(date) {
 		var hour    = date.getHours();  /* Returns the hour (from 0-23) */
@@ -205,7 +293,7 @@ function AgendaViewModel() {
 		var result  = hour;
 		var ext     = '';
 		
-		if(config.dateFormat == 12){
+		if(self.config.dateFormat == 12){
 			if(hour > 12){
 				ext = 'PM';
 				hour = (hour - 12);
@@ -222,6 +310,10 @@ function AgendaViewModel() {
 				ext = 'AM';
 			}else if(hour == 12){
 				ext = 'PM';
+			}
+		} else  {
+			if(hour < 10){
+				result = "0" + hour; 
 			}
 		}
 		
@@ -241,11 +333,12 @@ function AgendaViewModel() {
 		return self.labels[audience];
 	};
 	
+	
 	self.init = function() {
-		config.sessions.forEach(function(item) { item.when = new Date(item.when); });
-		config.sessions.sort(function(item1, item2) { return item1.when > item2.when;});
-		updateTimetable();
-		setInterval(updateTimetable, 5000);
+		//updateSessions();
+		updateConfiguration();
+		setInterval(updateSessions, 5000);
+		setInterval(updateConfiguration, 60000);
 	};
 }
 
@@ -255,9 +348,17 @@ ko.applyBindings(viewModel);
 
 //set container width
 var containerWidth = /width=([0-9]+(%|px))/.exec(window.location.search);
-document.getElementById("container").style.width=containerWidth ? containerWidth[1] : "100%";
 
-
+if (containerWidth) {
+	document.getElementById("container").style.width = containerWidth[1];
+} else {
+	function resizeContainer() {
+		var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		document.getElementById("container").style.width = height / 864 * 1152;
+	}
+	window.onresize = resizeContainer;
+	resizeContainer();
+}
 </script>
 </body>
 </html>
