@@ -4,6 +4,14 @@
 		"anticipateSessionByMinutes": 5,
 		"isRecentForMinutes": 30,
 		"sessions": [
+			{"when": "Sat, 07 Oct 2017 09:00:00 GMT+0200", "durationInMinutes": 60, "tracks": [{"what": "Apertura accrediti", "who": "attendees"}]},
+			{"when": "Sat, 07 Oct 2017 10:00:00 GMT+0200", "durationInMinutes": 15, "tracks": [{"what": "Introduzione all'evento", "who": "attendees"}]},
+			{"when": "Sat, 07 Oct 2017 10:15:00 GMT+0200", "durationInMinutes": 15, "tracks": [{"what": "Interventi host e sponsor locali", "who": "attendees"}]},
+			{"when": "Sat, 07 Oct 2017 10:40:00 GMT+0200", "durationInMinutes": 20, "tracks": [{"what": "Streaming: le challenge spiegate", "who": "attendees"}]},
+			{"when": "Sat, 07 Oct 2017 11:00:00 GMT+0200", "durationInMinutes": 25, "tracks": [{"what": "Streaming: tecnologie degli sponsor", "who": "attendees"}]},
+			{"when": "Sat, 07 Oct 2017 11:25:00 GMT+0200", "durationInMinutes": 10, "tracks": [{"what": "Streaming: consigli per l'hackathon", "who": "attendees"}]},
+			{"when": "Sat, 07 Oct 2017 11:40:00 GMT+0200", "durationInMinutes": 20, "tracks": [{"what": "Presentazione idee e group forming", "who": "attendees"}]},
+			{"when": "Sat, 07 Oct 2017 12:00:00 GMT+0200", "durationInMinutes": 20, "tracks": [{"what": "Via alla programmazione!", "who": "attendees"}]},
 			{"when": "Sat, 07 Oct 2017 14:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "SPID Sistema Pubblico Identità Digitale", "who": "attendees"}, {"what": "Allineamento Codemotion/Host", "who": "mentors"}]},
 			{"when": "Sat, 07 Oct 2017 15:00:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "DAF Data & Analytics Framework", "who": "attendees"}, {"what": "Allineamento Team digitale/Host", "who": "mentors"}]},
 			{"when": "Sat, 07 Oct 2017 15:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "CIE Carta Identità Elettronica", "who": "attendees"}]},
@@ -21,7 +29,10 @@
 			{"when": "Sun, 08 Oct 2017 11:00:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "Linee guida design", "who": "attendees"},{"what": "Allineamento Codemotion/Host", "who": "mentors"}]},
 			{"when": "Sun, 08 Oct 2017 11:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "18app", "who": "attendees"}]},
 			{"when": "Sun, 08 Oct 2017 12:00:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "ANPR Anagrafe Nazionale Pop. Res.", "who": "attendees"}]},
-			{"when": "Sun, 08 Oct 2017 14:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "Allineamento Team digitale/Host", "who": "mentors"}]}
+			{"when": "Sun, 08 Oct 2017 14:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "Allineamento Team digitale/Host", "who": "mentors"}]},
+			{"when": "Sun, 08 Oct 2017 15:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "Caricamento dei progetti su GitHub", "who": "attendees"}]},
+			{"when": "Sun, 08 Oct 2017 16:00:00 GMT+0200", "durationInMinutes": 60, "tracks": [{"what": "Presentazione dei progetti", "who": "attendees"}]},
+			{"when": "Sun, 08 Oct 2017 17:00:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "Chiusura dell'evento, alla prossima!", "who": "attendees"}]}
 		]
 	},
 	"labels": {
