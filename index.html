@@ -185,7 +185,7 @@ function AgendaViewModel() {
 				upcomingSessions = [];
 				var tracks = 0;
 				for (var j = i+1; j < Math.min(i+5, self.config.sessions.length); j++) {
-					if (tracks + self.config.sessions[j].tracks.length <= 4) {
+					if (tracks + self.config.sessions[j].tracks.length <= 3) {
 						tracks += self.config.sessions[j].tracks.length;
 						upcomingSessions.push(self.config.sessions[j]);
 					} else {
