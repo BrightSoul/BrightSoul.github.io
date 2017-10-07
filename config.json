@@ -1,7 +1,7 @@
 ﻿{ 
 	"config": {
 		"dateFormat": 24,
-		"anticipateSessionByMinutes": 5,
+		"anticipateSessionByMinutes": 10,
 		"isRecentForMinutes": 30,
 		"sessions": [
 			{"when": "Sat, 07 Oct 2017 09:00:00 GMT+0200", "durationInMinutes": 60, "tracks": [{"what": "Apertura accrediti", "who": "attendees"}]},
