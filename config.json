@@ -29,7 +29,7 @@
 			{"when": "Sun, 08 Oct 2017 11:00:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "Linee guida design", "who": "attendees"},{"what": "Allineamento Codemotion/Host", "who": "mentors"}]},
 			{"when": "Sun, 08 Oct 2017 11:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "18app", "who": "attendees"}]},
 			{"when": "Sun, 08 Oct 2017 12:00:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "ANPR Anagrafe Nazionale Pop. Res.", "who": "attendees"}]},
-			{"when": "Sun, 08 Oct 2017 14:00:00 GMT+0200", "durationInMinutes": 10, "tracks": [{"what": "Saluto ai partecipanti", "who": "attendees"}]},
+			{"when": "Sun, 08 Oct 2017 14:00:00 GMT+0200", "durationInMinutes": 10, "tracks": [{"what": "Saluto ai partecipanti su ORG-HOST", "who": "attendees"}]},
 			{"when": "Sun, 08 Oct 2017 14:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "Allineamento Team digitale/Host", "who": "mentors"}]},
 			{"when": "Sun, 08 Oct 2017 15:30:00 GMT+0200", "durationInMinutes": 30, "tracks": [{"what": "Caricamento dei progetti su GitHub", "who": "attendees"}]},
 			{"when": "Sun, 08 Oct 2017 16:00:00 GMT+0200", "durationInMinutes": 60, "tracks": [{"what": "Presentazione dei progetti", "who": "attendees"}]},
